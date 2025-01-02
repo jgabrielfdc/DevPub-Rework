@@ -9,11 +9,25 @@ class Route extends Bootstrap
 {
     protected function initRoutes()
     {
+
+        // ? Rotas das Páginas Principais
         $routes["home"] = array(
             "route" => "/",
             "controller" => "indexController",
             "action" => "home"
         );
+        $routes['suporte']=[
+            "route"=>"/suporte",
+            "controller"=>"indexController",
+            "action"=>"suporte"
+        ];
+
+        $routes['intro']=[
+            "route"=>"/intro",
+            "controller"=>"indexController",
+            "action"=>"intro"
+        ];
+        
 
         $routes["usuario"] = array(
             "route" => "/usuario",
