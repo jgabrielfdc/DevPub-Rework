@@ -1,5 +1,4 @@
 <html>
-
 <head>
 
     <meta charset="utf-8" />
@@ -17,20 +16,20 @@
 
     <!--CSS Personalizado-->
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="Imagens/icone.jpg">
+    <link rel="icon" href="assets/imgs/icone.jpg">
 
 </head>
 
 <body>
     <!--Fazer Inclusão do Layout-->
     <!--Cabeçalho-->
-    <header>
+    <header class="sticky-top">
 
         <nav class="navbar navbar-expand-sm navbar-light navega" style="overflow-y:visible; max-height:307.6px;">
-            <div class="container">
+            <div class="container d-flex justify-content-between">
                 <!--Logo Site-->
                 <a href="./" class="navbar-brand p-1 rounded alert alert-info my-auto">
-                    <img src="Imagens/gej (2).png" width="60">
+                    <img src="assets/imgs/gej (2).png" width="60">
                     <span class="nav-brand text-dark mr-2">DevHub</span>
                 </a>
                 <!--<h2>Rainer</h2>-->
@@ -59,7 +58,7 @@
                             if ($_SESSION['autenticado'] == true) {
                                 echo '<div class="dropdown usuarioFeed float-right">
                                             <button class="btn btn-info bg-transparent rounded border-0 shadow-none" data-toggle="dropdown" type="button">
-                                                <img src="imagens/eduardi.jpeg" class="rounded-circle" width="50" height="50">
+                                                <img src="assets/imgs/eduardi.jpeg" class="rounded-circle" width="50" height="50">
                                             </button>
                                             <div class="dropdown-menu bg-light float-sm-left" style="max-width:100px; z-index: 1000000 !important;">
                                                 <a href="/usuario" class="dropdown-item">Conta</a>
@@ -84,28 +83,9 @@
         </nav>
     </header>
     <?= $this->content() ?>
-
-
-    <footer class="py-md-3 py-sm-0 sticky-bottom">
-
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-
-            <li class="nav-item">
-                <a href="/" class="nav-link px-2 text-body-secondary text-secondary">Home</a>
-            </li>
-
-            <li class="nav-item">
-                <a href="/materiais" class="nav-link px-2 text-body-secondary text-secondary">Materiais</a>
-            </li>
-
-            <li class="nav-item">
-                <a href="/intro" class="nav-link px-2 text-body-secondary text-secondary">Sobre nós</a>
-            </li>
-
-        </ul>
-
-        <p class="text-center text-body-secondary py-2">© 2024 Company, Inc</p>
-
+    
+    <footer class="bg-dark">
+        <h2>Caralho</h2>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

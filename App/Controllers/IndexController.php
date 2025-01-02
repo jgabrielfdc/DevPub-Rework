@@ -2,6 +2,8 @@
 namespace App\Controllers;
 
 // OS recursos do Miniframework
+
+use App\Models\Usuario;
 use MF\Controller\Action;
 use MF\Model\Container;
 
@@ -29,8 +31,18 @@ class indexController extends Action{
         $this->render($path,"layout2");
     }
     
-    public function conteudo($path){
-        $this->render($path,"layout1");
+    // Path está vindo de Bootstrap
+    public function materiais($path){
+        $this->render($path,"layout_com_menu");
+    }
+    public function usuario($path){
+        $usuario=Container::getModel("usuario");
+        
+        $dadosUsuario=$usuario->getDadosUsuario();
+
+        $this->view->dadosUsuario=$dadosUsuario[0];
+
+        $this->render($path,"layout_com_menu");
     }
     
 }

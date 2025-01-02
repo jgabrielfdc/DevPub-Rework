@@ -15,16 +15,10 @@ class Route extends Bootstrap
             "action" => "index"
         );
 
-        $routes["conteudo"] = array(
-            "route" => "/conteudo",
+        $routes["usuario"] = array(
+            "route" => "/usuario",
             "controller" => "IndexController",
-            "action" => "conteudo"
-        );
-
-        $routes["sobre_nos"] = array(
-            "route" => "/sobre_nos",
-            "controller" => "IndexController",
-            "action" => "sobre_nos"
+            "action" => "usuario"
         );
 
         $this->setRoutes($routes);

@@ -25,12 +25,13 @@ abstract class Bootstrap{
                 $action=$route['action']; // Seleciona a Action a ser executada e pega o nome do arquivo a ser
 
                 $objct=new $class;
-                $objct->$action($action);
+                $objct->$action($action /*Isso aqui é o Path*/);
             }
         }
     }
     protected function getURL()
     {
+        //* Funcionando Corretamente
         // Assim eu recupero somente o caminho encaminhado na url
         return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     }
