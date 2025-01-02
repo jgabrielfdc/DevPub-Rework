@@ -12,7 +12,7 @@ class Route extends Bootstrap
         $routes["home"] = array(
             "route" => "/",
             "controller" => "indexController",
-            "action" => "index"
+            "action" => "home"
         );
 
         $routes["usuario"] = array(

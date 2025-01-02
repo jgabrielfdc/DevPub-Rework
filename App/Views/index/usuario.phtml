@@ -1,17 +1,15 @@
-<section class="bg-sky">
+<section>
         <div class="container bg-light p-5 py-5 h-100">
             <div class="row">
-                <div class="col-md-4 text-sm-center mb-sm-2 mt-sm-0">
-                    <img src="/Imagens/eduardi.jpeg" alt="Foto do Estudante" class="img-thumbnail bg-secondary rounded">
+                <div class="col-md-4 text-center h-100">
+                    <img src="assets/imgs/eduardi.jpeg" alt="Foto do Estudante" class="img-thumbnail bg-secondary rounded">
                 </div>
-                <div class="col-md-8">
-                    <h2><?= $this->view->dadosUsuario->nome ?></h2>
-                    <p>Data de Criação: 15/06/2024</p>
-                    <p>Ultima Sessão: 00</p>
-                    <p>Email: <?= $this->view->dadosUsuario->email ?></p>
-                    <p>Area de Interesse: <span class="text-info"><?= $this->view->dadosUsuario->interesse ?></span></p>
+                <div class="col-md-8 alert alert-secondary h-100 my-auto">
+                    <h2 class="alert alert-dark text-dark"><?= $this->view->dadosUsuario->nome ?></h2>
+                    <p class="border-bottom border-dark pb-2 mt-0">Data de Criação: 15/06/2024</p>
+                    <p class="border-bottom border-dark pb-2 mt-0">Ultima Sessão: 00</p>
+                    <p class="border-bottom border-dark pb-2 mt-0">Email: <?= $this->view->dadosUsuario->email ?></p>
+                    <p class="border-bottom border-dark pb-2 mt-0">Area de Interesse: <span class="text-info"><?= $this->view->dadosUsuario->interesse ?></span></p>
                 </div>
             </div>
-
-            <hr>
-    </section>
+</section>

@@ -196,37 +196,6 @@ transition:all 0.4s;
 #corpo_principal{
     background:linear-gradient(to bottom, #75cff8 ,#0090e4);
 }
-/*Rodapé
-----------------------------------------*/
-footer{
-    background: #000;
-    padding-top:50px;
-    padding-bottom:20px;
-}
-footer, #servicos, body{
-    width:100%;
-}
-footer h4{
-    color:#919496;
-    font-size:0.8em;
-    text-transform: uppercase;
-}
-footer .navbar-nav a{
-    color:white;
-    text-transform:capitalize;
-    font-size:0.8em;
-    transition:all 0.5s;
-}
-footer .navbar-nav a:hover{
-    color:#9bf0e1;
-    font-size:0.9em;
-    text-transform:capitalize;
-    text-decoration: none;
-    transition:all 0.5s;
-}
-footer ul{
-    list-style: none;
-}
 /*Tipografia
 ----------------------------------------*/
 header a.nav-link{
@@ -312,9 +281,6 @@ footer a{
     color:blue;
 
 }
-footer .social a{
-    font-size: 27px;
-}
 .desc{
     position:relative; left:50%;top:5%;color:rgb(77, 207, 164);
 }
@@ -328,9 +294,6 @@ footer .social a{
 .carousel{
     width:100%;
     overflow-x:hidden;
-}
-#home{
-    height:100%;
 }
 /*Cadastro*/
 #login,#cadastro{
@@ -581,7 +544,7 @@ nav.navbar-transparente{
     height:390px;
 }
 
-section.bg-sky{
+.bg-sky{
     background:linear-gradient(to bottom, #75cff8 ,#0090e4);
     height: 100%;
     min-height: 600px;

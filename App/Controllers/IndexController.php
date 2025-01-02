@@ -9,15 +9,7 @@ use MF\Model\Container;
 
 class indexController extends Action{
 
-    public function index($path){
-
-       // Instanciar Modelo
-       $produto=Container::getModel("Produto");
-
-       $arrayProdutos=$produto->getProdutos();
-
-       $this->view->dados=$arrayProdutos;
-
+    public function home($path){
        $this->render($path,"layout_com_menu");
     }
 
@@ -35,6 +27,7 @@ class indexController extends Action{
     public function materiais($path){
         $this->render($path,"layout_com_menu");
     }
+
     public function usuario($path){
         $usuario=Container::getModel("usuario");
         
