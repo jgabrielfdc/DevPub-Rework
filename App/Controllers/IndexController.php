@@ -35,6 +35,9 @@ class indexController extends Action{
     public function intro($path){
         $this->render($path,"layout_com_menu");
     }
+    public function materiais($path){
+        $this->render($path,"layout_com_menu");
+    }
 
     public function usuario($path){
         $usuario=Container::getModel("usuario");

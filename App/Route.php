@@ -27,6 +27,12 @@ class Route extends Bootstrap
             "controller"=>"indexController",
             "action"=>"intro"
         ];
+
+        $routes['materiais']=[
+            "route"=>"/materiais",
+            "controller"=>"indexController",
+            "action"=>"materiais"
+        ];
         
 
         $routes["usuario"] = array(
