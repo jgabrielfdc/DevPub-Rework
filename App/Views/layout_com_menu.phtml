@@ -69,28 +69,23 @@
                                     <a class="nav-link" href="/intro">Sobre nós</a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <?php
-
-                                    if ($_SESSION['autenticado'] == true) {
-                                        echo '<div class="dropdown usuarioFeed float-right">
+                                <li class="nav-item" id="feed_usuario">
+                                    <?php if ($_SESSION['autenticado'] == true) { ?>
+                                            <div class="dropdown usuarioFeed float-right">
                                                 <button class="btn btn-info bg-transparent rounded border-0 shadow-none" data-toggle="dropdown" type="button">
                                                     <img src="assets/imgs/eduardi.jpeg" class="rounded-circle" width="50" height="50">
                                                 </button>
                                                 <div class="dropdown-menu bg-light float-sm-left" style="max-width:100px; z-index: 1000000 !important;">
                                                     <a href="/usuario" class="dropdown-item">Conta</a>
-                                                    <a href="/contact" class="dropdown-item">Suporte</a>
+                                                    <a href="/suporte" class="dropdown-item">Suporte</a>
                                                     <div class="dropdown-divider"></div>
-                                                    <center>
-                                                    <a href="/logout" class="dropdown-item badge badge-danger w-50 h-50">Sair</a>
-                                                    </center>
+                                                    <a href="/logout" class="dropdown-item badge badge-danger mx-auto w-50 h-50">Sair</a>
                                                 </div>
-                                            </div> <div class="clearfix"></div>';
-                                    } else {
-                                        echo "<a href='/login' class='btn btn-light mt-3'><span class='text-secondary'>Entrar</span></a>";
-                                    }
-
-                                    ?>
+                                            </div>
+                                            <div class="clearfix"></div>';
+                                   <? } else { ?>
+                                        <a href='/login' class='btn btn-light mt-3'><span class='text-secondary'>Entrar</span></a>";
+                                   <? } ?>
                                 </li>
 
                             </ul>
