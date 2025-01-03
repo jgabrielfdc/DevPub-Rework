@@ -43,12 +43,13 @@ class indexController extends Action{
         $dadosUsuario=$usuario->getDadosUsuario();
 
         $this->view->dadosUsuario=$dadosUsuario[0];
+        $this->render($path,"layout_com_menu");
        }catch(\PDOException $erro){
-        $path="falha";
         $this->view->erro=$erro;
+        $this->render("falha","layout_com_menu");
        }
 
-        $this->render($path,"layout_com_menu");
+       
     }
     
 }
