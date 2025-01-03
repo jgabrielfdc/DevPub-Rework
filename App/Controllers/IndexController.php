@@ -38,6 +38,7 @@ class indexController extends Action{
     }
 
     public function usuario($path){
+        try{
         $usuario=Container::getModel("usuario");
         
         $dadosUsuario=$usuario->getDadosUsuario();
@@ -45,6 +46,9 @@ class indexController extends Action{
         $this->view->dadosUsuario=$dadosUsuario[0];
 
         $this->render($path,"layout_com_menu");
+        }catch(\PDOException $Error){
+            $this->render("falha","layout_com_menu");
+        }
     }
     
 }
