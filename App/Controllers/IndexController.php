@@ -44,11 +44,11 @@ class indexController extends Action{
         $dadosUsuario=$usuario->getDadosUsuario();
 
         $this->view->dadosUsuario=$dadosUsuario[0];
+        }catch(\PDOException $Error){
+            $path="falha";
+        }
 
         $this->render($path,"layout_com_menu");
-        }catch(\PDOException $Error){
-            $this->render("falha","layout_com_menu");
-        }
     }
     
 }
