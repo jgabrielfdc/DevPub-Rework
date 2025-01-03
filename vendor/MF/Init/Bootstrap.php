@@ -37,6 +37,8 @@ abstract class Bootstrap{
                 $action=$route['action']; // Seleciona a Action a ser executada e pega o nome do arquivo a ser
 
                 $objct=new $class;
+                session_start();
+                $_SESSION['autenticado']=true;
                 $objct->$action($action);
             }
         }

@@ -11,7 +11,6 @@ class indexController extends Action{
 
     public function home($path){
         session_start();
-        $_SESSION['autenticado']=true;
        $this->render($path,"layout_com_menu");
     }
 
