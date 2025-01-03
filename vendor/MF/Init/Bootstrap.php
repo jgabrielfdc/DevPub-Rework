@@ -37,7 +37,7 @@ abstract class Bootstrap{
                 $action=$route['action']; // Seleciona a Action a ser executada e pega o nome do arquivo a ser
 
                 $objct=new $class;
-                $objct->$action($action /*Isso aqui é o Path*/);
+                $objct->$action($action);
             }
         }
     }

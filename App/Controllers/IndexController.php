@@ -36,6 +36,7 @@ class indexController extends Action{
         $this->render($path,"layout_com_menu");
     }
     public function materiais($path){
+        
         $this->render($path,"layout_com_menu");
     }
 
