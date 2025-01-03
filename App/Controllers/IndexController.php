@@ -10,7 +10,7 @@ use MF\Model\Container;
 class indexController extends Action{
 
     public function home($path){
-        session_start();
+        @session_start();
        $this->render($path,"layout_com_menu");
     }
 
