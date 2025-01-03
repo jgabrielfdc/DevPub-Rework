@@ -37,11 +37,16 @@ class indexController extends Action{
     }
 
     public function usuario($path){
+       try{
         $usuario=Container::getModel("usuario");
         
         $dadosUsuario=$usuario->getDadosUsuario();
 
         $this->view->dadosUsuario=$dadosUsuario[0];
+       }catch(\PDOException $erro){
+        $path="falha";
+        $this->view->erro=$erro;
+       }
 
         $this->render($path,"layout_com_menu");
     }
