@@ -10,7 +10,6 @@ use MF\Model\Container;
 class indexController extends Action{
 
     public function home($path){
-        @session_start();
        $this->render($path,"layout_com_menu");
     }
 
@@ -38,15 +37,11 @@ class indexController extends Action{
     }
 
     public function usuario($path){
-        try{
         $usuario=Container::getModel("usuario");
         
         $dadosUsuario=$usuario->getDadosUsuario();
 
         $this->view->dadosUsuario=$dadosUsuario[0];
-        }catch(\PDOException $Error){
-            $path="falha";
-        }
 
         $this->render($path,"layout_com_menu");
     }
