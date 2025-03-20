@@ -4,42 +4,25 @@
 
 namespace App;
 use MF\Init\Bootstrap;
+use MF\Model\Container;
 
 class Route extends Bootstrap
 {
     protected function initRoutes()
-    {
+    {   
+        session_start();
+        $_SESSION['adm']=true;
+        $route=Container::getModel("Route");
+        $routeList=$route->getRoutes();
+        $routes=[];
 
-        // ? Rotas das Páginas Principais
-        $routes["home"] = array(
-            "route" => "/",
-            "controller" => "indexController",
-            "action" => "home"
-        );
-        $routes['suporte']=[
-            "route"=>"/suporte",
-            "controller"=>"indexController",
-            "action"=>"suporte"
-        ];
-
-        $routes['intro']=[
-            "route"=>"/intro",
-            "controller"=>"indexController",
-            "action"=>"intro"
-        ];
-
-        $routes['materiais']=[
-            "route"=>"/materiais",
-            "controller"=>"indexController",
-            "action"=>"materiais"
-        ];
-        
-
-        $routes["usuario"] = array(
-            "route" => "/usuario",
-            "controller" => "IndexController",
-            "action" => "usuario"
-        );
+        foreach($routeList as $route){
+            $routes[$route['action']]=array(
+                "route"=>$route['route'],
+                "controller"=>($route['controller']."Controller"),
+                "action"=>$route['action']
+            );
+        }
 
         $this->setRoutes($routes);
     }

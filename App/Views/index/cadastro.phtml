@@ -1,39 +1,40 @@
 <!--Formulario Cadastro-->
-  <center>
-    <section class="pt-5 bg-sky">
-      <div id="cadastro" class="pb-5 ">
-        <form method="post" action="/signUpRequest" target="_self">
+<div class="d-flex justify-content-center w-100">
+    <section class="pt-5 bg-sky w-100 bg-dark d-flex justify-content-around">
+      <div id="cadastro" class="pb-5 w-100 d-flex flex-column justify-content-around h-100">
+        <form method="post" action="/registerUser" target="_self" class="d-flex flex-column align-items-center w-100">
           <h2>Cadastro</h2>
           <hr>
-          <div class="grupo_form form-group">
-            <input type="text" name="nome" id="nome" placeholder="Nome:" class="form-control form-control-sm my-2"
-              autofocus>
-            <input type="email" name="email" id="email" placeholder="E-mail:" class="form-control form-control-sm my-2">
-            <input type="password" name="senha" id="senha" placeholder="Senha:"
-              class="form-control form-control-sm my-2">
-            <input type="password" name="confirmaSenha" id="confirmaSenha" placeholder="Confirme sua Senha:"
-              class="form-control form-control-sm my-2">
+          <div class="grupo_form form-group w-100 justify-content-around px-3">
+            <input type="text" name="name" placeholder="Nome:" class="form-control form-control-sm my-2" autofocus required>
+
+            <input type="email" name="email" placeholder="E-mail:" class="form-control form-control-sm my-2" required>
+            
+            <input type="password" name="senha" id="password" placeholder="Senha:" class="form-control form-control-sm my-2">
+            
+            <input type="password" name="confirmaSenha" id="passwordConfirm" placeholder="Confirme sua Senha:" class="form-control form-control-sm my-2">
+            
             <h4 class="py-2 text-center">Área de Interesse</h4>
+            
+            
             <div class="text-left pl-3 py-auto">
-              <label for="front">Front-end</label>
-              <input type="radio" value="1" id="front" name="area_interesse" required><br>
-
-              <label for="back">Back-end</label>
-              <input type="radio" value="2" id="back" name="area_interesse" required><br>
-
-              <label for="FS">Full Stack</label>
-              <input type="radio" value="3" id="FS" name="area_interesse" required><br>
+              <? foreach($this->view->desire as $item){?>
+                <input type="radio" value="<?=$item['id']?>" name="interest" id="<?=$item['id']?>"">
+                <label for="<?=$item['id']?>""><?=$item['desire']?></label><br>
+              <?}?>
             </div>
+
           </div>
 
           <hr>
-          <button class="btn btn-primary btn-lg m-2 w-75">Cadastrar</button>
+            <button class="btn btn-primary btn-lg m-2 w-75" type="submit">Cadastrar</button>
           <hr>
         </form>
-        <center><button class="btn btn-outline-warning w-50" onclick="window.location.href='/login'">Entrar
-            Conta</button></center>
+        <div class="d-flex justify-content-center">       
+              <a href="/login" class="btn btn-outline-warning w-50">Entrar Conta</a>
+        </div>
       </div>
 
-      <div class="mt-5"><?php require("components/footer.php") ?></div>
     </section>
-  </center>
+    <script src="assets/js/passwordFeedback.js"></script>
+</div>

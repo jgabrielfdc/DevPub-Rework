@@ -1,0 +1,15 @@
+<section class="container h-100 bg-dark">
+    <div class="row">
+        <div class="col-4 bg-light d-flex align-items-center p-2 h-100">
+            <form method="POST" action="/insertRoute" class="d-flex flex-column justify-content-around w-100 h-100">
+                <input type="text" placeholder="Rota" name="route">
+                    <select class="w-100" name="controller">
+                        <?foreach($this->view->controllerList as $option){?>
+                            <option value="<?= $option['id'] ?>"><?= $option['controller']?>Controller</option>    
+                        <?}?>
+                    </select>
+                <button type="submit" class="btn btn-outline-primary btn-lg w-25">+</button>
+            </form>
+        </div>
+    </div>
+</section>

@@ -11,7 +11,7 @@ abstract class Action
         $this->view = new \stdClass();
     }
 
-    public function render($view, $layout)
+    public function render($view, $layout="layout_com_menu")
     {
         $this->view->page = $view;
 
@@ -21,6 +21,12 @@ abstract class Action
             $this->content();
         }
 
+    }
+
+    public function autoRender(){
+        $path=$_SERVER['REQUEST_URI'];
+        $render=str_replace('/','', $path);
+        $this->render($render);
     }
 
     protected function content()
