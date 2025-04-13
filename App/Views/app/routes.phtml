@@ -1,16 +1,59 @@
 <section class="container h-100 bg-dark">
     <div class="row">
-        <div class="col-4 bg-light d-flex flex-column align-items-center p-2 h-100">
-            <h3>Adicionar Rotas</h3>
-            <form method="POST" action="/insertRoute" class="d-flex flex-column justify-content-around w-100 h-100">
-                <input type="text" placeholder="Rota" name="route">
-                    <select class="w-100" name="controller">
-                        <?foreach($this->view->controllerList as $option){?>
-                            <option value="<?= $option['id'] ?>"><?= $option['controller']?>Controller</option>    
-                        <?}?>
-                    </select>
-                <button type="submit" class="btn btn-outline-primary btn-lg w-25">+</button>
-            </form>
+        <div class="col-4 d-flex flex-column align-items-center p-2 h-100">
+            <div class="m-2 border w-100 d-flex flex-column align-items-center rounded bg-light">
+                <h3>Adicionar Rotas</h3>
+                <form method="POST" action="/insertRoute" class="d-flex flex-column justify-content-around w-100 h-100 border rounded px-2">
+                    
+                    <h4 class="m-0 p-0 pb-2 mx-2">Rota</h4>
+                    <hr class="m-1 p-1 border-dark">
+                    <input type="text" name="route" class="bg-light" style="border:2px solid lightgray;">
+                        
+                    <h4 class="m-0 p-0 py-2 mx-2">Controllers</h4>
+                    <hr class="m-1 p-1 border-dark">
+                    <div class="text-left pl-3 py-auto">
+
+                            <?foreach($this->view->controllerList as $item){?>
+                                <input type="radio" value="<?=$item['id']?>" name="controller" id="<?=$item['id']?>">
+                                <label for="<?=$item['id']?>"><?=ucfirst($item['controller'])?>Controller</label><br>
+                            <?}?>
+                            
+                    </div>
+                    <h4 class="m-0 p-0 pb-2 mx-2">Action</h4>
+                    <hr class="m-1 p-1 border-dark">
+                    <input type="text" name="action" class="bg-light my-1 mb-2" style="border:2px solid lightgray;" id="action">
+                    <hr class="m-1 p-1 border-dark">
+                    <div class="w-100 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-outline-primary btn-lg w-50 my-2">+</button>
+                        <span class="btn btn-outline-primary btn-lg w-50 my-2" onclick="$('#action').val('materiais')">Default Action</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-8 bg-light d-flex flex-column align-items-center p-2 h-100">
+            <div class="w-100 p-3 border border-dark">
+                <table class="w-100">
+                    <tr class="bg-dark text-light">
+                        <th class="border text-center border-dark">ID</th>
+                        <th class="border text-center border-dark">Route</th>
+                        <th class="border text-center border-dark">Controller</th>
+                        <th class="border text-center border-dark">Action</th>
+                    </tr>
+                    <?foreach($this->view->routeList as $route){?>
+                        <tr class="">
+                        <td class="border border-dark text-center p-2"><?= $route['id'] ?></td> 
+                        <td class="px-2 pl-2 border border-dark"><?= $route['route'] ?></td> 
+                        <td class="border border-dark text-center"><?= ucfirst($route['controller']) ?>Controller</td> 
+                        <td class="border border-dark text-center"><?= $route['action'] ?></td> 
+                        <td class="px-2 text-center">
+                            <form method="POST" action="/deleteRoute" class="my-1">
+                                <button class="btn btn-danger" value="<?= $route['id'] ?>" name="delete" type="submit">X</button>
+                            </form>
+                        </td> 
+                        </tr>
+                    <?}?>
+                </table>
+            </div>
         </div>
     </div>
 </section>

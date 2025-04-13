@@ -1,0 +1,58 @@
+<!--Formulario Cadastro-->
+<section class="container-fluid px-5  bg-sky">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="greeting__container">
+                <h1>DevPub</h1>
+                <h3>Comunidade para desenvolvedores
+                    <p class="h3">Pra você que é <span class="typewrite" data-period="2000" data-type='["Fullstack", "Front-End", "Back-End","Quality Assurance","DevOps","Viado"]'>Viado</span></p>
+                </h3>
+                
+            </div>
+        </div>
+        <div class="col-md-6">
+            <section class="pt-5 w-100 d-flex justify-content-around">
+            <div id="cadastro" class="pb-5 w-100 d-flex flex-column justify-content-around h-100">
+                <form method="post" action="/registerUser" class="d-flex flex-column align-items-center w-100">
+                <h2>Cadastro</h2>
+                <hr>
+                <div class="grupo_form form-group w-100 justify-content-around px-3">
+                    <input type="text" name="name" placeholder="Nome:" class="form-control form-control-sm my-2" autofocus required>
+
+                    <input type="email" name="email" placeholder="E-mail:" class="form-control form-control-sm my-2" required>
+                    
+                    <input type="password" name="senha" id="password" placeholder="Senha:" class="form-control form-control-sm my-2">
+                    
+                    <input type="password" name="confirmaSenha" id="passwordConfirm" placeholder="Confirme sua Senha:" class="form-control form-control-sm my-2">
+                    
+                    <h4 class="py-2 text-center">Área de Interesse</h4>
+                    
+                    
+                    <div class="d-flex justify-content-between flex-wrap form-check border border-dark" >
+                        <? foreach($this->view->desire as $item){?>
+                            <div class="m-1">
+                                <input type="radio" class="btn-check" name="interest" id="interest<?=$item['id']?>" value="<?=$item['id']?>" autocomplete="off">
+                                <label class="btn btn-dark btn-outline-dark" for="interest<?=$item['id']?>" onclick=""><?=$item['desire']?></label>
+                            </div>
+                        <?}?>
+                    </div>
+
+                </div>
+
+                <hr>
+                    <button class="btn btn-primary btn-lg w-75" type="submit">Cadastrar</button>
+                <hr>
+                </form>
+                <div class="d-flex justify-content-center">       
+                    <a href="/login" class="btn btn-outline-warning w-50">Entrar Conta</a>
+                </div>
+            </div>
+
+            </section>
+        </div>
+    </div>
+
+        <script src="assets/js/passwordFeedback.js"></script>
+        <script src="assets/js/typewriter.js"></script>
+    </div>
+</section>

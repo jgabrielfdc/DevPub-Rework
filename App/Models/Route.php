@@ -49,5 +49,14 @@ class Route extends Database{
 
         header("Location:/routes");
     }
+
+    public function deleteRoute(){
+        $query="DELETE FROM tb_routes WHERE id=:id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(":id",$this->__get("id"));
+
+        $stmt->execute();
+        header("Location:/routes");
+    }
     
 }

@@ -1,7 +1,8 @@
 {
     "name":"miniframework/miniframework",
     "require":{
-        "php":">=7.0"
+        "php":">=7.0",
+        "nette/mail": "^4.0"
     },
     "authors":[
         {

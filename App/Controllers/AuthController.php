@@ -8,10 +8,12 @@ use MF\Model\Container;
 class authController extends Action{
 
     public function registerUser(){
+        echo "<pre>";
         print_r($_POST);
+        echo "</pre>";
     }
 
     public function logout(){
-        header("Location: /register");
+        header("Location: /");
        }
 }

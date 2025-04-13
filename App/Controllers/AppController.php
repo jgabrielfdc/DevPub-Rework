@@ -16,7 +16,7 @@ class appController extends Action{
         if(isset($_SESSION['adm']) && $_SESSION['adm']){
             $controllers=Container::getModel("Route");
             $this->view->controllerList=$controllers->getControllers();
-        
+            $this->view->routeList=$controllers->getRoutes();
             $this->autoRender();
         }else{
             header("Location:/");
@@ -25,10 +25,21 @@ class appController extends Action{
 
     public function insertRoute(){
         $route=Container::getModel("Route");
-        $route->__set("route",'/'.$_POST["route"]);
-        $route->__set("controller",$_POST['controller']);
-        $route->__set("action",$_POST['route']);
+        $route->__set("route",'/'.strtolower($_POST["route"]));
+        $route->__set("controller",strtolower($_POST['controller']));
+        $route->__set("action",strtolower($_POST['action']));
         $route->insertRoute();
         
+    }
+
+    public function deleteRoute(){
+
+        $route=Container::getModel('Route');
+        $route->__set("id",$_POST['delete']);
+        $route->deleteRoute();
+    }
+
+    public function suporte(){
+        $this->autoRender();
     }
 }

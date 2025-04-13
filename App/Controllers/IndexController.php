@@ -8,6 +8,14 @@ use MF\Model\Container;
 
 class indexController extends Action{
 
+    public function landing(){
+        $desire=Container::getModel("User");
+
+        $this->view->desire=$desire->getDesires();
+
+       $this->render("landing","layout_landing");
+    }
+    
     public function home(){
        $this->render("home");
     }
@@ -31,9 +39,7 @@ class indexController extends Action{
     }
 
    public function register(){
-    $desire=Container::getModel("User");
-
-    $this->view->desire=$desire->getDesires();
+    
     
     $this->render("cadastro");
    }
