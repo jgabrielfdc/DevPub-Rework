@@ -1,23 +1,19 @@
 @echo off
-REM Define os caminhos do projeto
-set "PROJECT_PATH=C:\Users\authe\Documents\GitHub\DevPub-Rework"
-set "PUBLIC_PATH=%PROJECT_PATH%\public"
+setlocal
+
+REM Recupera o caminho do projeto e do diretorio publico
+set "Directory_Path=%~dp0"
+set "Directory_Path=%Directory_Path:~0,-1%"
+set "Public_Directory=%Directory_Path%\public"
 
 REM Abre o VS Code no diretório do projeto
-start "" code "%PROJECT_PATH%"
-
-REM Aguarda um tempo para o VS Code abrir
+start "" code "%Directory_Path%"
 timeout /t 2 >nul
 
-REM Abre o Opera no localhost
+REM Inicia o servidor e abre o site no navegador (Opera)
 start "" opera "http://localhost:2020"
-
-REM Aguarda o navegador abrir
 timeout /t 2 >nul
-
-REM Muda para a pasta public e inicia o servidor PHP no prompt de comando em background
-cd /d "%PUBLIC_PATH%"
+cd /d "%Public_Directory%"
 start /B php -S localhost:2020
 
-REM Fecha o CMD sem fechar o servidor PHP
 exit
