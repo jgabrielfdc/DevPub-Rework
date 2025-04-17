@@ -15,10 +15,6 @@ class indexController extends Action{
 
        $this->render("landing","layout_landing");
     }
-    
-    public function home(){
-       $this->render("home");
-    }
 
     public function sobre_nos($path){
         $info=Container::getModel("Info");
@@ -29,15 +25,6 @@ class indexController extends Action{
 
         $this->render("equipe");
     }
-    
-    public function suporte(){
-        $this->render("suporte");
-    }
-
-    public function intro(){
-        $this->render("intro");
-    }
-
    public function register(){
     
     

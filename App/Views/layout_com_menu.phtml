@@ -67,7 +67,7 @@
                                 </li>
 
                                 <li class="nav-item" id="feed_usuario">
-                                    <? if ($_SESSION['autenticado'] == true) { ?>
+                                    <? if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == 1) { ?>
                                             <div class="dropdown usuarioFeed float-right">
                                                 <button class="btn btn-info bg-transparent rounded border-0 shadow-none" data-toggle="dropdown" type="button">
                                                     <img src="assets/imgs/eduardi.jpeg" class="rounded-circle" width="50" height="50">
@@ -87,7 +87,7 @@
                                             </div>
                                             <div class="clearfix"></div>';
                                    <? } else { ?>
-                                        <a href='/login' class='btn btn-light mt-3'><span class='text-secondary'>Entrar</span></a>";
+                                        <a href='/loginUser' class='btn btn-light mt-3'><span class='text-secondary'>Entrar</span></a>";
                                    <? } ?>
                                 </li>
 

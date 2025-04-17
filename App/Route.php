@@ -10,8 +10,6 @@ class Route extends Bootstrap
 {
     protected function initRoutes()
     {   
-        session_start();
-        $_SESSION['adm']=true;
         $route=Container::getModel("Route");
         $routeList=$route->getRoutes();
         $routes=[];
@@ -24,25 +22,25 @@ class Route extends Bootstrap
         
         $routes["home"]=array(
             "route"=>"/home",
-            "controller"=>"indexController",
+            "controller"=>"appController",
             "action"=>"home"
         );
         
         $routes["routes"]=array(
             "route"=>"/routes",
-            "controller"=>"appController",
+            "controller"=>"routesController",
             "action"=>"routes"
         );
 
         $routes["insertRoute"]=array(
             "route"=>"/insertRoute",
-            "controller"=>"appController",
+            "controller"=>"routesController",
             "action"=>"insertRoute"
         );
 
         $routes["deleteRoute"]=array(
             "route"=>"/deleteRoute",
-            "controller"=>"appController",
+            "controller"=>"routesController",
             "action"=>"deleteRoute"
         );
 
@@ -52,6 +50,7 @@ class Route extends Bootstrap
             "action"=>"sendMail"
         );
 
+        session_start();
         foreach($routeList as $route){
             $routes[str_replace("/","",$route['route'])]=array(
                 "route"=>$route['route'],
